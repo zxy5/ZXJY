@@ -77,3 +77,72 @@ Route::group(['prefix'=>'/System/Members','middleware'=>['auth:managerAuth']],fu
     Route::post('/Save/{member_id}','Backend\MembersController@Save');
 
 });
+
+//定义后台的学科模块路由
+Route::group(['prefix'=>'/System/Subject','middleware'=>['auth:managerAuth']],function (){
+    //学科列表
+    Route::get('/Index',"Backend\SubjectController@Index");
+    //学科用于被databases插件的ajax调用数据
+    Route::post('/ApiList',"Backend\SubjectController@ApiList");
+    //学科的添加界面
+    Route::get('/Add',"Backend\SubjectController@Add");
+    //学科入库的程序路由
+    Route::post('/Store',"Backend\SubjectController@Store");
+    //学科入库（删除）的程序路由,根据mg_id来删除学科
+    Route::post('/Remove/{id}',"Backend\SubjectController@Remove");
+    //查询要修改的学科的程序路由,根据id来找到要修改的学科记录,编辑页面路由
+    Route::get('/Edit/{id}',"Backend\SubjectController@Edit");
+    //学科入库(保存修改)的程序路由,根据id 来进行修改
+    Route::post('/Save/{id}',"Backend\SubjectController@Save");
+
+});
+//上传的控制路由
+Route::group(['prefix'=>'/System/Uploader','middleware'=>['auth:managerAuth']],function (){
+    //上传一般都是post
+    Route::post('/Upload',"Backend\UploaderController@Upload");
+});
+//定义后台的专业模块路由
+Route::group(['prefix'=>'/System/Professional','middleware'=>['auth:managerAuth']],function(){
+    //专业列表
+    Route::get('/Index',"Backend\ProfessionalController@Index");
+    //专业用于被datatables插件的ajax调用的数据
+    Route::post('/ApiList',"Backend\ProfessionalController@ApiList");
+    //专业的添加界面
+    Route::get('/Add',"Backend\ProfessionalController@Add");
+    //专业入库(添加)的程序路由
+    Route::post('/Store',"Backend\ProfessionalController@Store");
+    //专业入库(删除)的程序路由,根据id来删除专业
+    Route::post('/Remove/{id}',"Backend\ProfessionalController@Remove");
+    //查询要修改的专业的程序路由,根据id来找到要修改的专业记录,编辑页面路由
+    Route::get('/Edit/{id}',"Backend\ProfessionalController@Edit");
+    //专业入库(保存修改)的程序路由,根据id来进行修改
+    Route::post('/Save/{id}',"Backend\ProfessionalController@Save");
+});
+
+//定义后台的课程模块路由
+Route::group(['prefix'=>'/System/Course'],function(){
+    //课程列表
+    Route::get('/Index',"Backend\CourseController@Index");
+    //课程用于被datatables插件的ajax调用的数据
+    Route::post('/ApiList',"Backend\CourseController@ApiList");
+    //课程的添加界面
+    Route::get('/Add',"Backend\CourseController@Add");
+    //课程入库(添加)的程序路由
+    Route::post('/Store',"Backend\CourseController@Store");
+    //课程入库(删除)的程序路由,根据id来删除课程
+    Route::post('/Remove/{id}',"Backend\CourseController@Remove");
+    //查询要修改的课程的程序路由,根据id来找到要修改的课程记录,编辑页面路由
+    Route::get('/Edit/{id}',"Backend\CourseController@Edit");
+    //课程入库(保存修改)的程序路由,根据id来进行修改
+    Route::post('/Save/{id}',"Backend\CourseController@Save");
+});
+
+
+//定义后台的课时模块路由
+Route::group(['prefix'=>'/System/Lesson'],function(){
+    Route::get('/Add',"Backend\LessonController@Add");
+
+});
+
+
+

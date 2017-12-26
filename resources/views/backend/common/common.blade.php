@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/admin/static/h-ui.admin/css/H-ui.admin.css" />
     <link rel="stylesheet" href="/admin/lib/Hui-iconfont/1.0.8/iconfont.css" />
     <link rel="stylesheet" href="/admin/static/h-ui.admin/skin/default/skin.css" id="skin" />
+    <!-- 首页需要引入hui-admin中的webuploader的css定义  -->
+    <link rel="stylesheet" href="/admin/lib/webuploader/0.1.5/webuploader.css">
     <link rel="stylesheet" href="/admin/static/h-ui.admin/css/style.css" />
     <title>{{$title or '在线教育平台管理系统'}}</title>
 </head>
@@ -19,6 +21,8 @@
 <script src="/admin/lib/layer/2.4/layer.js"></script>
 <script src="/admin/static/h-ui/js/H-ui.min.js"></script>
 <script src="/admin/static/h-ui.admin/js/H-ui.admin.js"></script>
+{{-- webuploader插件 --}}
+<script src="/admin/lib/webuploader/0.1.5/webuploader.js"></script>
 <!--/_footer 作为公共模版分离出去-->
 @yield('footer-js')
 </body>
